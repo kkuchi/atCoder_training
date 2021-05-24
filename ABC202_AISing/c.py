@@ -1,17 +1,22 @@
+# PyPyで提出
+
 import sys
+from collections import Counter
 
 def sp_list(e):
     return list(map(int, e.split()))
 
 def main():
     s = sys.stdin.read().splitlines()
-    # n = s[0]
     A, B, C = map(sp_list, s[1:4])
 
     target = [B[c-1] for c in C]
 
-    t_count = [target.count(a) for a in A]
+    counter = Counter(target)
+    c_keys = counter.keys()
 
-    print(sum(t_count))
+    ans = [counter[a] for a in A if a in c_keys]
+
+    print(sum(ans))
 
 main()
