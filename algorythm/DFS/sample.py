@@ -11,7 +11,7 @@ for _ in range(N):
     v.sort()
     for i in v:
         graph[u].append(i)
-        # graph[i].append(u) # 無向グラフ
+        graph[i].append(u) # 無向グラフ
 
 time = 0
 arrive_time = [-1] * (N + 1) # 到着時刻
